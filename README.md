@@ -1,8 +1,9 @@
 # has\_salt
 
-You're using `has_secure_password`, right?  But sometimes, you still need a per-
-record salt for other, non-password reasons.  For example, to generate non-
-predictable URLs, secret URL's that aren't vulnerable to replayability, etc.
+You're using `has_secure_password`, right?  But sometimes, you still need a
+per-record salt for other, non-password reasons.  For example, to generate
+non-predictable URLs, secret keys's that aren't vulnerable to replayability,
+etc.
 
 `has_salt` does all this for you, without having to do all the `before_validate`
 dances, or make too many decisions regarding length, etc.
@@ -42,11 +43,11 @@ a need.
 
 ## Lengths
 
-By default, has_salt tries to generate HasSalt::DEFAULT_LENGTH bytes of salt
-data.  This can be overridden in a few ways:
+By default, `has_salt` tries to generate `HasSalt::DEFAULT_LENGTH` bytes of
+hex-encoded salt data.  This can be overridden in a few ways:
 
   * Explicity passing `:length` or `:size` to `has_salt`
-  * Applying length validations on the column.  `:is' will set it outright.
+  * Applying length validations on the column.  `:is` will set it outright.
     `:minimum`, `:maximum` and `:in` options will adjust the default length
     to fit.
   * Schema information, for example, `:limit` on a column migration will
