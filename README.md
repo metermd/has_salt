@@ -2,7 +2,7 @@
 
 You're using `has_secure_password`, right?  But sometimes, you still need a
 per-record salt for other, non-password reasons.  For example, to generate
-non-predictable URLs, secret keys's that aren't vulnerable to replayability,
+non-predictable URLs, secret keys that aren't vulnerable to replayability,
 etc.
 
 `has_salt` does all this for you, without having to do all the `before_validate`
