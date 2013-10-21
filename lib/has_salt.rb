@@ -1,7 +1,9 @@
 require 'securerandom'
 
 module HasSalt
+
   DEFAULT_LENGTH = 64
+
   module ClassMethods
     INFINITY = 1.0 / 0.0
 
@@ -10,7 +12,7 @@ module HasSalt
       column ||= :salt
 
       # Size override
-      fail "don't pass both :size and :length" if size && length
+      fail ArgumentError, "don't pass both :size and :length" if size && length
       length ||= size
 
       # Allow passing in strings
