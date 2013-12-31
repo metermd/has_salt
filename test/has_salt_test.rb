@@ -1,6 +1,6 @@
+require 'minitest/autorun'
 require 'minitest/unit'
 require 'minitest/pride'
-require 'minitest/autorun'
 require 'active_record'
 require 'has_salt'
 
@@ -10,7 +10,7 @@ ActiveRecord::Base.establish_connection adapter:  'sqlite3',
 class BaseTable < ActiveRecord::Base
 end
 
-class HasSaltTest < MiniTest::Unit::TestCase
+class HasSaltTest < MiniTest::Test
   def setup
     capture_io do
       ActiveRecord::Schema.define(version: 1) do
@@ -79,7 +79,7 @@ class HasSaltTest < MiniTest::Unit::TestCase
     u = OnlyTest.create!
     assert_equal nil, u.salt
     assert_equal HasSalt::DEFAULT_LENGTH, u.sodium.size
-    refute_equal nil, u.salt16.size
+    refute_equal nil, u.salt16
   end
 
   class ExplicitName < BaseTable
