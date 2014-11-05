@@ -24,7 +24,7 @@ module HasSalt
       only = ->(symbol) { -> { send(symbol) } }.(only) if only.is_a?(Symbol)
 
       generate_salt = -> (length) do
-        raw = SecureRandom.hex((length / 2.0) + 1)
+        raw = SecureRandom.base64((length * 0.75) + 1)
         raw[0...length]
       end
 
