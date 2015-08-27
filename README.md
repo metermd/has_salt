@@ -1,5 +1,12 @@
 # has\_salt
 
+## NOTE: THIS PROJECT IS DEPRECATED.
+
+Rails has now `has_secure_token`, which does 90% of the same thing `has_salt` does.  
+Use that if possible.
+
+# Original README
+
 You're using `has_secure_password`, right?  But sometimes, you still need a
 per-record salt for other, non-password reasons.  For example, to generate
 non-predictable URLs, secret keys that aren't vulnerable to replayability,
@@ -12,7 +19,7 @@ dances, or make too many decisions regarding length, etc.
 
 Add this line to your application's Gemfile:
 
-    gem 'has_salt', github: 'mieko/has_salt'
+    gem 'has_salt', github: 'metermd/has_salt'
 
 And then execute:
 
